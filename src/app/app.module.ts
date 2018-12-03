@@ -7,6 +7,9 @@ import { LoginComponent } from './login/login.component';
 import { CadastroComponent } from './cadastro/cadastro.component';
 import { PacienteComponent } from './paciente/paciente.component';
 import { ConsultasComponent } from './consultas/consultas.component';
+import { MenuComponent } from './menu/menu.component';
+import { HomeComponent } from './home/home.component';
+import { EditarComponent } from './editar/editar.component';
 
 
 @NgModule({
@@ -15,11 +18,24 @@ import { ConsultasComponent } from './consultas/consultas.component';
     LoginComponent,
     CadastroComponent,
     PacienteComponent,
-    ConsultasComponent
+    ConsultasComponent,
+    MenuComponent,
+    HomeComponent,
+    EditarComponent
   ],
   imports: [
     BrowserModule,
     RouterModule.forRoot([
+      {path: '', component:  LoginComponent},
+      {path: 'cadastro', component: CadastroComponent},
+      {path: 'menu', component:  MenuComponent,
+      children: [ 
+        {path: 'home', component: HomeComponent},
+        {path: 'paciente', component: PacienteComponent},
+        {path: 'consultas', component: ConsultasComponent},
+          {path: 'editar', component: EditarComponent},
+      ]
+    }
     ])
   ],
   providers: [],
