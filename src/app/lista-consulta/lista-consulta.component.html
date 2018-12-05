@@ -1,0 +1,48 @@
+<div align="center">
+    <div class="content card">
+      <h6 *ngIf="!consultas && !carregando">Não há consultas cadastradas</h6>
+  
+      <div *ngIf="consultas">
+        
+        <h6>Consultas Cadastradas</h6>
+  
+        <table>
+          <thead>
+            <tr>
+              <th>Especialidade</th>
+              <th>Médico</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let consulta of consultas">
+              <td>
+                <span *ngIf="!consulta.editando">{{consulta.especialidade}}</span>
+                <input *ngIf="consulta.editando" type="text" [(ngModel)]="consulta.especialidade" name="especialidade-{{consulta.uid}}">
+              </td>
+              <td>
+                <span *ngIf="!consulta.editando">{{consulta.medico}}</span>
+                <input *ngIf="consulta.editando" type="text" [(ngModel)]="consulta.medico" name="medico-{{consulta.uid}}">
+              </td>
+              <td *ngIf="!consulta.editando" class="remove-parent">
+                <a class="edit-parent" (click)="editar(consulta)" href="javascript:void(0);">
+                  <i class="material-icons">edit</i>
+                </a>
+                <a (click)="remover(consulta.uid)" href="javascript:void(0);">
+                  <i class="material-icons">delete</i>
+                </a>
+              </td>
+              <td *ngIf="consulta.editando" class="remove-parent">
+                <a class="confirm-parent" (click)="confirmEdit(consulta)" href="javascript:void(0);">
+                  <i class="material-icons">check</i>
+                </a>
+                <a (click)="cancelEdit(consulta)" href="javascript:void(0);">
+                  <i class="material-icons">close</i>
+                </a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>

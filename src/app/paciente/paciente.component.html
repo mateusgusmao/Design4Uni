@@ -1,11 +1,62 @@
+<!--<div align="center">
+    <div class="card-panel">
+        Cadastro
+        <div class="row">
+            <div class="input-field col s12">
+                <input id="nome" type="text" name="nome" [(ngModel)]="novoPaciente.nome">
+                <label for="nome">Nome do Paciente</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12">
+                <input id="idade" type="text" name="idade" [(ngModel)]="novoPaciente.idade">
+                <label for="idade">Idade</label>
+            </div>
+        </div>
+        <div>
+            <button [disabled]="!novoUsuario.nome || !novoUsuario.idade" (click)="cadastrar()" class="waves-effect waves-light btn green">Cadastre-se</button>
+        </div>
+    </div>
+</div>-->
+
 <div align="center">
+    <div class="card-panel">
+        <h4>Cadastro de Usuários</h4>
+        <div class="row">
+            <div class="input-field col s12">
+                <input type="text" id="nome" name="nome" [(ngModel)]="novoPaciente.nome" placeholder="Digite o seu nome">
+                <label for="nome">Nome</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12">
+                <input (keyup.enter)="cadastrar()" type="text" id="idade" name="idade" [(ngModel)]="novoPaciente.idade" placeholder="Digite o seu idade">
+                <label for="idade">Idade</label>
+            </div>
+        </div>
+
+        <div align="right" class="button-container">
+            <button [disabled]="!novoPaciente.nome || !novoPaciente.idade" (click)="cadastrar()" class="waves-effect waves-light btn green">CADASTRAR</button>
+        </div>
+
+        <div *ngIf="carregando" class="progress">
+            <div class="indeterminate"></div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+<!-- <div align="center">
     <div class="card-panel">
         Dados Do Usuário
         <div class="card-panel grey lighten-5 z-depth-1">
             <div class="row valign-wrapper">
                 <div class="col s2">
                     <img src="assets/Logoppo.png" width="50" height="50" alt="Logo" class="circle responsive-img">
-                    <!-- notice the "circle" class -->
                 </div>
                 <div class="col s10">
                     <span class="black-text">
@@ -16,4 +67,4 @@
             </div>
         </div>
     </div>
-</div>
+</div>-->

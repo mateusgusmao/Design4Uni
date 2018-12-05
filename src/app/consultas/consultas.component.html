@@ -1,4 +1,42 @@
 <div align="center">
+        <div class="card-panel">
+            <h4>Cadastro de Consultas</h4>
+            <div class="row">
+                <div class="input-field col s12">
+                    <input type="text" id="especialidade" name="especialidade" [(ngModel)]="novaConsulta.especialidade" placeholder="Digite a sua Especialidade">
+                    <label for="especialidade">Especialidade</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <input (keyup.enter)="cadastrar()" type="text" id="medico" name="idade" [(ngModel)]="novaConsulta.medico" placeholder="Digite o nome do Médico">
+                    <label for="medico">Médico</label>
+                </div>
+            </div>
+    
+            <div align="right" class="button-container">
+                <button [disabled]="!novaConsulta.especialidade || !novaConsulta.medico" (click)="cadastrar()" class="waves-effect waves-light btn green">CADASTRAR</button>
+            </div>
+    
+            <div *ngIf="carregando" class="progress">
+                <div class="indeterminate"></div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--<div align="center">
     <table>
         <thead>
             <tr>
@@ -27,4 +65,4 @@
         </tbody>
         <div align="left"><a class="waves-effect waves-light btn blue" routerLink="/menu/editar" >Marcar Consulta!</a></div>
     </table>
-</div>
+</div>-->

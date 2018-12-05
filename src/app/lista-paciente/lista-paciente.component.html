@@ -1,0 +1,48 @@
+<div align="center">
+  <div class="content card">
+    <h6 *ngIf="!pacientes && !carregando">Não há pacientes cadastrados</h6>
+
+    <div *ngIf="pacientes">
+      
+      <h6>Pacientes cadastrados</h6>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Nome</th>
+            <th>Idade</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let paciente of pacientes">
+            <td>
+              <span *ngIf="!paciente.editando">{{paciente.nome}}</span>
+              <input *ngIf="paciente.editando" type="text" [(ngModel)]="paciente.nome" name="nome-{{paciente.uid}}">
+            </td>
+            <td>
+              <span *ngIf="!paciente.editando">{{paciente.idade}}</span>
+              <input *ngIf="paciente.editando" type="text" [(ngModel)]="paciente.idade" name="idade-{{paciente.uid}}">
+            </td>
+            <td *ngIf="!paciente.editando" class="remove-parent">
+              <a class="edit-parent" (click)="editar(paciente)" href="javascript:void(0);">
+                <i class="material-icons">edit</i>
+              </a>
+              <a (click)="remover(paciente.uid)" href="javascript:void(0);">
+                <i class="material-icons">delete</i>
+              </a>
+            </td>
+            <td *ngIf="paciente.editando" class="remove-parent">
+              <a class="confirm-parent" (click)="confirmEdit(paciente)" href="javascript:void(0);">
+                <i class="material-icons">check</i>
+              </a>
+              <a (click)="cancelEdit(paciente)" href="javascript:void(0);">
+                <i class="material-icons">close</i>
+              </a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
