@@ -11,7 +11,8 @@
           <tr>
             <th>Nome</th>
             <th>Idade</th>
-            <th></th>
+            <th>CPF</th>
+            <th>Editar</th>
           </tr>
         </thead>
         <tbody>
@@ -23,6 +24,10 @@
             <td>
               <span *ngIf="!paciente.editando">{{paciente.idade}}</span>
               <input *ngIf="paciente.editando" type="text" [(ngModel)]="paciente.idade" name="idade-{{paciente.uid}}">
+            </td>
+            <td>
+              <span *ngIf="!paciente.editando">{{paciente.cpf}}</span>
+              <input *ngIf="paciente.editando" type="text" [(ngModel)]="paciente.cpf" name="cpf-{{paciente.uid}}">
             </td>
             <td *ngIf="!paciente.editando" class="remove-parent">
               <a class="edit-parent" (click)="editar(paciente)" href="javascript:void(0);">

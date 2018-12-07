@@ -9,11 +9,18 @@
             </div>
             <div class="row">
                 <div class="input-field col s12">
-                    <input (keyup.enter)="cadastrar()" type="text" id="medico" name="idade" [(ngModel)]="novaConsulta.medico" placeholder="Digite o nome do Médico">
+                    <input type="text" id="medico" name="idade" [(ngModel)]="novaConsulta.medico" placeholder="Digite o nome do Médico">
                     <label for="medico">Médico</label>
                 </div>
             </div>
-    
+
+            <div class="row">
+                <div class="input-field col s12">
+                    <input (keyup.enter)="cadastrar()" type="text" id="dia" name="dia" [(ngModel)]="novaConsulta.dia" placeholder="Digite o dia">
+                    <label for="dia">Dia</label>
+                </div>
+            </div>
+            
             <div align="right" class="button-container">
                 <button [disabled]="!novaConsulta.especialidade || !novaConsulta.medico" (click)="cadastrar()" class="waves-effect waves-light btn green">CADASTRAR</button>
             </div>

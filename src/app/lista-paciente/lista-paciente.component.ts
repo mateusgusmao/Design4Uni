@@ -48,7 +48,7 @@ export class ListaPacienteComponent implements OnInit {
   }
 
   confirmEdit(paciente) {
-    this.database.atualizar('pacientes', paciente.uid, { nome: paciente.nome, idade: paciente.idade })
+    this.database.atualizar('pacientes', paciente.uid, { nome: paciente.nome, idade: paciente.idade, cpf: paciente.cpf })
       .then(() => {
         alert('Paciente atualizado com sucesso');
 

@@ -48,7 +48,7 @@ export class ListaConsultaComponent implements OnInit {
   }
 
   confirmEdit(consulta) {
-    this.database.atualizar('consultas', consulta.uid, { especialidade: consulta.especialidade, medico: consulta.medico })
+    this.database.atualizar('consultas', consulta.uid, { especialidade: consulta.especialidade, medico: consulta.medico, dia: consulta.dia })
       .then(() => {
         alert('Consulta atualizada com sucesso');
 

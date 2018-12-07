@@ -30,8 +30,14 @@
         </div>
         <div class="row">
             <div class="input-field col s12">
-                <input (keyup.enter)="cadastrar()" type="text" id="idade" name="idade" [(ngModel)]="novoPaciente.idade" placeholder="Digite o seu idade">
+                <input  type="text" id="idade" name="idade" [(ngModel)]="novoPaciente.idade" placeholder="Digite o seu idade">
                 <label for="idade">Idade</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12">
+                <input (keyup.enter)="cadastrar()" type="text" id="cpf" name="cpf" [(ngModel)]="novoPaciente.cpf" placeholder="Digite o seu CPF">
+                <label for="cpf">CPF</label>
             </div>
         </div>
 

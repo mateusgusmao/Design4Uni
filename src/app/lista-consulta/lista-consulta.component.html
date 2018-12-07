@@ -11,7 +11,8 @@
             <tr>
               <th>Especialidade</th>
               <th>Médico</th>
-              <th></th>
+              <th>Dia</th>
+              <th>Editar</th>
             </tr>
           </thead>
           <tbody>
@@ -23,6 +24,10 @@
               <td>
                 <span *ngIf="!consulta.editando">{{consulta.medico}}</span>
                 <input *ngIf="consulta.editando" type="text" [(ngModel)]="consulta.medico" name="medico-{{consulta.uid}}">
+              </td>
+              <td>
+                <span *ngIf="!consulta.editando">{{consulta.dia}}</span>
+                <input *ngIf="consulta.editando" type="text" [(ngModel)]="consulta.dia" name="dia-{{consulta.uid}}">
               </td>
               <td *ngIf="!consulta.editando" class="remove-parent">
                 <a class="edit-parent" (click)="editar(consulta)" href="javascript:void(0);">
